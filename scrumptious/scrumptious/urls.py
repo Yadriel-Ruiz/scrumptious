@@ -15,9 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include 
+from django.urls import path, include
+from django.shortcuts import redirect
+
+redirect_to_recipe_list = lambda request: redirect('recipe_list')
+
 
 urlpatterns = [
+    path("", redirect_to_recipe_list, name="homepage"),
     path('admin/', admin.site.urls),
     path("", include("recipes.urls")),
 ]
