@@ -31,17 +31,14 @@ def create_recipe(request):
         return render(request, "recipes/create.html", context)
     
 def edit_recipe(request, id):
-    # Retrieve the existing recipe instance
     recipe = get_object_or_404(Recipe, id=id)
 
     if request.method == "POST":
-        # If the form is submitted, process the data
         form = RecipeForm(request.POST, instance=recipe)
         if form.is_valid():
             form.save()
-            return redirect("show_recipe", id=id)  # Redirect to the updated recipe detail page
+            return redirect("show_recipe", id=id) 
     else:
-        # If it's a GET request, populate the form with existing data
         form = RecipeForm(instance=recipe)
 
     context = {

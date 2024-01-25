@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import redirect
 
-redirect_to_recipe_list = lambda request: redirect('recipe_list')
+def redirect_to_recipe_list(request):
+    return redirect('home')
 
 
 urlpatterns = [
+    path("accounts/", include("accounts.urls")),
     path("", redirect_to_recipe_list, name="homepage"),
     path('admin/', admin.site.urls),
     path("", include("recipes.urls")),
