@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}
+        Scrumptious Recipes
+        {% endblock title %}
+    </title>
+    <link rel="stylesheet" href="{% static "css/recipes.css" %}">
+</head>
+<body>
+    {% block content %}
+
+
+    {% endblock content %}
+<footer>
+    <p>Made with love by Scrumptious Recipes</p>
+</footer>
+</body>
+</html>
